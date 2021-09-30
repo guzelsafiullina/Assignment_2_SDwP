@@ -88,7 +88,7 @@ Examples
 ```python
 $ python3 bc.py compare -py src1.py -py src2.py -py src3.py
 
-INSTRUCTION | src1.py | src2.py | src3.py
+             src1.py   src2.py   src3.py
 LOAD_FAST       15         8         3
 POP_TOP         0         12         0
 CALL_FUNCTION   9          0         0
