@@ -67,7 +67,7 @@ SETUP_LOOP      to 58
 ```
 ## bc_with_compare.py
 This program is extended version of bc_printer.py. 
-It can compare bytecode among different sources and produce neat table with stats of the used opcodes (and only them).
+It can compare bytecode among different sources and produce neat table with stats of the used opcodes (and only them) and save results into "out.txt" (see the example in repo)
 
 ```python
 usage: bc.py action [-flag value]*
