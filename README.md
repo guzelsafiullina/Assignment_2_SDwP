@@ -1,6 +1,8 @@
 # Assignment_2_SDwP
 In this repo you can find programs that works with execution time of programs, work with bytecode of code snippets, programs in py- files and pyc- files.
 Requirements files time, sys, subprocess, os,timeit, dis, marshal, tempfile, py_compile
+## src1.py-src3.py and src1.pyc 
+These files contain some simple functions. You can use them to test compare_time.py, bc.py and bc_with_compare.py
 ## compare_time.py
 It takes N arbitrary .py files and creates a neat table out of their execution time. 
 
