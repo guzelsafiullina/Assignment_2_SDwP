@@ -17,20 +17,23 @@ import numpy as np
 import csv
 
 def get_bytecode(arg):
+    """ This function return Bytecode of an argument """
     return dis.Bytecode(arg)
 
 def expand_bytecode(bytecode):
-        result = []
-        for instruction in bytecode:
-            if str(type(instruction.argval)) == "<class 'code'>":
-                result += expand_bytecode(dis.Bytecode(instruction.argval))
-            else:
-                result.append(instruction)
-            
-        return result
+    """This function return bytecode of object. It also recursively disassembles nested code objects"""
+    result = []
+    for instruction in bytecode:
+        if str(type(instruction.argval)) == "<class 'code'>":
+            result += expand_bytecode(dis.Bytecode(instruction.argval))
+        else:
+            result.append(instruction)
+
+    return result
 
 
 def compile():
+    """Compiles py-files and code snippets. Remain pyc-files without changing. """
     for i in sys.argv[3:]:
         if sys.argv[2]=="-py":
             try:
@@ -50,6 +53,7 @@ def compile():
             return
     
 def print_bc(arg):
+    """Print Bytecode of argument (code snippet, py- and pyc- files)"""
     for i in sys.argv[3:]:
         source = None
         
@@ -78,6 +82,7 @@ def print_bc(arg):
 
 
 def compare():
+    """It compares bytecode among different sources and produce neat table with stats of the used opcodes and save results into "out.txt" """
     keys = []
     D={}
 
