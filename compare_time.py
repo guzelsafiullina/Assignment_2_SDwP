@@ -11,6 +11,7 @@ import os,timeit
 import dis
 
 def task1():
+    """This function measures time of execution of py-files and print it"""
     print(sys.argv[1:])
     l = sys.argv[1:]
     #python_executor(l)
