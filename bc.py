@@ -20,14 +20,14 @@ def get_bytecode(arg):
 
 def expand_bytecode(bytecode):
     """This function return bytecode of object. It also recursively disassembles nested code objects"""
-        result = []
-        for instruction in bytecode:
-            if str(type(instruction.argval)) == "<class 'code'>":
-                result += expand_bytecode(dis.Bytecode(instruction.argval))
-            else:
-                result.append(instruction)
-            
-        return result
+    result = []
+    for instruction in bytecode:
+        if str(type(instruction.argval)) == "<class 'code'>":
+            result += expand_bytecode(dis.Bytecode(instruction.argval))
+        else:
+            result.append(instruction)
+
+    return result
 
 
 def compile():
