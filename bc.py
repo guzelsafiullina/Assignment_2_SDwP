@@ -15,9 +15,11 @@ from tempfile import NamedTemporaryFile
 import py_compile
 
 def get_bytecode(arg):
+    """ This function return Bytecode of an argument """
     return dis.Bytecode(arg)
 
 def expand_bytecode(bytecode):
+    """This function return bytecode of object. It also recursively disassembles nested code objects"""
         result = []
         for instruction in bytecode:
             if str(type(instruction.argval)) == "<class 'code'>":
@@ -29,6 +31,7 @@ def expand_bytecode(bytecode):
 
 
 def compile():
+    """Compiles py-files and code snippets. Remain pyc-files without changing. """
     for i in sys.argv[3:]:
         if sys.argv[2]=="-py":
             try:
@@ -48,6 +51,7 @@ def compile():
             return
     
 def print_bc(arg):
+    """Print Bytecode of argument (code snippet, py- and pyc- files)"""
     for i in sys.argv[3:]:
         source = None
         
