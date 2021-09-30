@@ -59,7 +59,7 @@ def print_bc(arg):
             header_size = 12
             if sys.version_info >= (3,7):
                 header_size = 16
-            with open(i,'r') as f:
+            with open(i,'rb') as f:
                 f.seek(header_size)
                 source = marshal.load(f)
         elif sys.argv[2] == "-s":
