@@ -64,4 +64,32 @@ SETUP_LOOP      to 58
 ...
 ```
 ## bc_with_compare.py
+This program is extended version of bc_printer.py. 
+It can compare bytecode among different sources and produce neat table with stats of the used opcodes (and only them).
 
+```python
+usage: bc.py action [-flag value]*
+This program ...
+compile
+    -py file.py compile file into bytecode and store it as file.pyc
+    -s "src" compile src into bytecode and store it as out.pyc
+print
+    -py src.py
+    -pyc src.pyc produce human-readable bytecode from python file produce human-readable bytecode from compiled .pyc file
+    -s "src" produce human-readable bytecode from normal string
+compare -format src [-format src]+
+    produce bytecode comparison for giving sources 
+    (supported formats -py, -pyc, -s)
+```
+Examples
+
+```python
+$ python3 bc.py compare -py src1.py -py src2.py -py src3.py
+
+INSTRUCTION | src1.py | src2.py | src3.py
+LOAD_FAST       15         8         3
+POP_TOP         0         12         0
+CALL_FUNCTION   9          0         0
+LOAD_NAME       9          3         9
+RETURN_VALUE    3          3         3
+```
